@@ -1,5 +1,15 @@
 import { useAppDataContext } from "../context/AppDataContext";
 
+const flagLang = (language) => {
+  // Converto "en" in "GB" per la llingua inglese
+  if (language === "en") {
+    return "https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg";
+  }
+
+  // Trasformo in maiuscolo l'identificativo per la lingua per ricevere la bandiera corretta dal sito "purecatam..""
+  return `https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.toUpperCase()}.svg`;
+};
+
 export default function Main() {
   const { movies } = useAppDataContext();
 
@@ -9,9 +19,17 @@ export default function Main() {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            {movie.title} <br /> {movie.original_title} <br />{" "}
-            {movie.original_language} <br />
-            {movie.vote_average}
+            <p>Titolo Film: {movie.title}</p>{" "}
+            <p>Titolo Film in lingua originale: {movie.original_title} </p>
+            <p>
+              Lingua originale:{" "}
+              <img
+                src={flagLang(movie.original_language)}
+                alt={movie.original_language}
+                className="flag-width"
+              />{" "}
+            </p>
+            <p>Voto medio del Film: {movie.vote_average} </p>
           </li>
         ))}
       </ul>
