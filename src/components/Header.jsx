@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 export default function Header() {
   return (
     <header>
-      <h1>Boolflix</h1>
+      <img src="../images/fontbolt.png" />
       <SearchBar />
     </header>
   );

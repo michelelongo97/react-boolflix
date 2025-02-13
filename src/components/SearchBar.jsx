@@ -36,7 +36,7 @@ export default function SearchBar() {
       <input
         name="search"
         type="search"
-        placeholder="Cerca"
+        placeholder="Cerca film o serie"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

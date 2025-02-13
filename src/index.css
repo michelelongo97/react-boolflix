@@ -1,3 +1,55 @@
+* {
+  box-sizing: border-box;
+  padding: auto;
+  margin: auto;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  min-height: 100px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  align-items: center;
+}
+
+header img {
+  width: 300px;
+}
+
 .flag-width {
   width: 18px;
+}
+
+main {
+  background-color: rgb(42, 42, 42);
+  min-height: 100vh;
+}
+
+main h2 {
+  text-align: center;
+  color: red;
+  padding: 10px;
+  font-size: 32px;
+}
+
+.card {
+  color: white;
+  background-color: black;
+  width: 380px;
+  padding: 20px;
+  margin: 4px;
+}
+
+.card p {
+  padding: 10px 0;
 }

@@ -33,44 +33,60 @@ export default function Main() {
   return (
     <main>
       <h2>Lista Films</h2>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <p>Titolo Film: {movie.title}</p>
-            <p>Titolo Originale: {movie.original_title}</p>
-            <p>
-              Lingua Originale:
+      <div className="container">
+        <div className="row">
+          {movies.map((movie) => (
+            <div key={movie.id} className="card">
+              <p>
+                <strong>Titolo Film: </strong>
+                {movie.title}
+              </p>
+              <p>
+                <strong>Titolo Originale:</strong> {movie.original_title}
+              </p>
+              <p>
+                <strong>Lingua Originale:</strong>
+                <img
+                  src={flagLang(movie.original_language)}
+                  alt={movie.original_language}
+                  className="flag-width"
+                />
+              </p>
+              <p>
+                <strong>Voto: </strong>
+                {convertVote(movie.vote_average)}
+              </p>
               <img
-                src={flagLang(movie.original_language)}
-                alt={movie.original_language}
-                className="flag-width"
+                src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
               />
-            </p>
-            <p>Voto: {convertVote(movie.vote_average)}</p>
-            <img src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`} />
-          </li>
-        ))}
-      </ul>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <h2>Lista Serie TV</h2>
-      <ul>
-        {series.map((serie) => (
-          <li key={serie.id}>
-            <p>Titolo Serie: {serie.name}</p>
-            <p>Titolo Originale: {serie.original_name}</p>
-            <p>
-              Lingua Originale:
+      <div className="container">
+        <div className="row">
+          {series.map((serie) => (
+            <div key={serie.id} className="card">
+              <p>Titolo Serie: {serie.name}</p>
+              <p>Titolo Originale: {serie.original_name}</p>
+              <p>
+                Lingua Originale:
+                <img
+                  src={flagLang(serie.original_language)}
+                  alt={serie.original_language}
+                  className="flag-width"
+                />
+              </p>
+              <p>Voto: {convertVote(serie.vote_average)}</p>
               <img
-                src={flagLang(serie.original_language)}
-                alt={serie.original_language}
-                className="flag-width"
+                src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`}
               />
-            </p>
-            <p>Voto: {convertVote(serie.vote_average)}</p>
-            <img src={`https://image.tmdb.org/t/p/w154/${serie.poster_path}`} />
-          </li>
-        ))}
-      </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }
