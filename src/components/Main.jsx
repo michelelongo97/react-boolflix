@@ -10,6 +10,11 @@ const flagLang = (language) => {
   return `https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.toUpperCase()}.svg`;
 };
 
+const convertVote = (vote) => {
+  // Divido il voto per 2 e arrotondo per eccesso
+  return Math.ceil(vote / 2);
+};
+
 export default function Main() {
   const { movies, series } = useAppDataContext();
 
@@ -29,7 +34,7 @@ export default function Main() {
                 className="flag-width"
               />
             </p>
-            <p>Voto: {movie.vote_average}</p>
+            <p>Voto: {convertVote(movie.vote_average)}</p>
             <img src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`} />
           </li>
         ))}
@@ -49,7 +54,7 @@ export default function Main() {
                 className="flag-width"
               />
             </p>
-            <p>Voto: {serie.vote_average}</p>
+            <p>Voto: {convertVote(serie.vote_average)}</p>
             <img src={`https://image.tmdb.org/t/p/w154/${serie.poster_path}`} />
           </li>
         ))}
