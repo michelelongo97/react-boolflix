@@ -37,25 +37,30 @@ export default function Main() {
         <div className="row">
           {movies.map((movie) => (
             <div key={movie.id} className="card">
-              <p>
-                <strong>Titolo Film: </strong>
-                {movie.title}
-              </p>
-              <p>
-                <strong>Titolo Originale:</strong> {movie.original_title}
-              </p>
-              <p>
-                <strong>Lingua Originale:</strong>
-                <img
-                  src={flagLang(movie.original_language)}
-                  alt={movie.original_language}
-                  className="flag-width"
-                />
-              </p>
-              <p>
-                <strong>Voto: </strong>
-                {convertVote(movie.vote_average)}
-              </p>
+              <div className="info">
+                <p>
+                  <strong>Titolo Film: </strong>
+                  {movie.title}
+                </p>
+                <p>
+                  <strong>Titolo Originale:</strong> {movie.original_title}
+                </p>
+                <p>
+                  <strong>Lingua Originale:</strong>
+                  <img
+                    src={flagLang(movie.original_language)}
+                    alt={movie.original_language}
+                    className="flag-width"
+                  />
+                </p>
+                <p>
+                  <strong>Voto: </strong>
+                  {convertVote(movie.vote_average)}
+                </p>
+                <p>
+                  <strong>Overview:</strong> {movie.overview}
+                </p>
+              </div>
               <img
                 src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
               />
@@ -69,17 +74,22 @@ export default function Main() {
         <div className="row">
           {series.map((serie) => (
             <div key={serie.id} className="card">
-              <p>Titolo Serie: {serie.name}</p>
-              <p>Titolo Originale: {serie.original_name}</p>
-              <p>
-                Lingua Originale:
-                <img
-                  src={flagLang(serie.original_language)}
-                  alt={serie.original_language}
-                  className="flag-width"
-                />
-              </p>
-              <p>Voto: {convertVote(serie.vote_average)}</p>
+              <div className="info">
+                <p>Titolo Serie: {serie.name}</p>
+                <p>Titolo Originale: {serie.original_name}</p>
+                <p>
+                  Lingua Originale:
+                  <img
+                    src={flagLang(serie.original_language)}
+                    alt={serie.original_language}
+                    className="flag-width"
+                  />
+                </p>
+                <p>Voto: {convertVote(serie.vote_average)}</p>
+                <p>
+                  <strong>Overview:</strong> {serie.overview}
+                </p>
+              </div>
               <img
                 src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`}
               />
