@@ -30,6 +30,7 @@ export default function Main() {
               />
             </p>
             <p>Voto: {movie.vote_average}</p>
+            <img src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`} />
           </li>
         ))}
       </ul>
@@ -49,6 +50,7 @@ export default function Main() {
               />
             </p>
             <p>Voto: {serie.vote_average}</p>
+            <img src={`https://image.tmdb.org/t/p/w154/${serie.poster_path}`} />
           </li>
         ))}
       </ul>
