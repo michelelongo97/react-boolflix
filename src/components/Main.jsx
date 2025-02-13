@@ -10,11 +10,23 @@ const flagLang = (language) => {
   return `https://purecatamphetamine.github.io/country-flag-icons/3x2/${language.toUpperCase()}.svg`;
 };
 
+// Funzione per voto arrotondato e stelle
 const convertVote = (vote) => {
-  // Divido il voto per 2 e arrotondo per eccesso
-  return Math.ceil(vote / 2);
-};
+  const fullStars = Math.ceil(vote / 2);
+  const emptyStars = 5 - fullStars;
 
+  const stars = [];
+
+  for (let i = 0; i < fullStars; i++) {
+    stars.push("fas fa-star");
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    stars.push("far fa-star");
+  }
+
+  return stars.map((star) => <i className={star}></i>);
+};
 export default function Main() {
   const { movies, series } = useAppDataContext();
 
